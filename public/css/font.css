@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Shabnam-FD-WOL";
+    src: url('../fonts/Shabnam-FD-WOL.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Itim-Regular';
+    src: url('../fonts/Itim-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+html, body{
+    font-family: "Vazirmatn" , 'Itim-Regular';
+    text-size-adjust: 100%;
+}
+*{
+    font-size: 16px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family : "Shabnam-FD-WOL", 'Itim-Regular';
+}
