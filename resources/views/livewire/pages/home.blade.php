@@ -630,7 +630,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -838,7 +838,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1046,7 +1046,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1272,7 +1272,7 @@
                         </div>
                         <!--end::Alert-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1479,7 +1479,7 @@
                         </div>
                         <!--end::Alert-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1695,7 +1695,7 @@
                         </div>
                         <!--end::Alert-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1814,7 +1814,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1904,7 +1904,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->
@@ -1970,7 +1970,7 @@
                         </div>
                         <!--end::Features-->
                         <!--begin::Select-->
-                        <a href="tel:09370290168" class="btn btn-sm btn-primary">ثبت سفارش</a>
+                        <a href="{{route('products')}}" class="btn btn-sm btn-primary">ثبت سفارش</a>
                         <!--end::Select-->
                     </div>
                     <!--end::Option-->

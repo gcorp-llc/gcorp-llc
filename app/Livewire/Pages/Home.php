@@ -17,6 +17,14 @@ class Home extends Component
 
     public function render()
     {
+        $this->dispatch('alert',
+            position: 'top-start',
+            icon: 'error',
+            title: 'Your work has been saved',
+            text: 'Something went wrong!',
+            showConfirmButton: false,
+            timer: 3500
+        );
         SEOTools::setTitle('گروه فن آوری جهان نوین راد');
         SEOMeta::addKeyword([
             'گروه فن آوری جهان نوین راد',

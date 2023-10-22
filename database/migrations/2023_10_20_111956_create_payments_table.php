@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->unsignedInteger('amount');
             $table->string('merger_id')->nullable();
             $table->string('status')->default('pending');

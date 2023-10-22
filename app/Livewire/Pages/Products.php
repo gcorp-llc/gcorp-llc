@@ -2,17 +2,21 @@
 
 namespace App\Livewire\Pages;
 
+use App\Livewire\Auth\SignIn;
 use App\Livewire\Components\Page\Product\Cart;
 use App\Models\Order;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Service;
 use Livewire\Component;
 
 class Products extends Component
 {
-    public $carts ,$services;
+    public $carts, $services;
+
     public function mount()
     {
+
 
         $this->services = Service::all();
 
@@ -32,6 +36,7 @@ class Products extends Component
 
     public function cartClear()
     {
+
         if (auth()->check()) {
             Order::where([
                 ['user_id', auth()->id()],
@@ -44,22 +49,106 @@ class Products extends Component
 
     public function addCart($id)
     {
-        if (auth()->check()){
-            $order = Product::find($id);
-            $order_check=Order::count();
-dd($order_check);
-            if ($order && !$order_check) {
-                Order::create([
+        if (auth()->check()) {
+            $product = Product::find($id);
+            $order = Order::firstWhere([
+                ['user_id', auth()->id()],
+                ['product_id', $product->id],
+                ['state', 'pending']
+            ]);
+            if ($order) $order_quantity = $order->quantity + 1;
+            if (!$order) $order_quantity = 1;
+            $order_price = $product->offer ? $product->offer * $order_quantity : $product->price * $order_quantity;
+            Order::updateOrCreate(
+                [
                     'user_id' => auth()->id(),
-                    'product_id' => $order->id,
-                    'amount' =>  $order->offer ?? $order->price,
-                    'quantity' => 1,
+                    'product_id' => $product->id,
                     'state' => 'pending',
+                ],
+                [
+                    'amount' => $order_price,
+                    'quantity' => $order_quantity,
                 ]);
-            }
-           $this->getProduct();
+            $this->getProduct();
+        }
+        else{
+            $this->redirect(SignIn::class);
         }
     }
+
+    public function orderPlus($id)
+    {
+        $order = Order::find($id);
+        $product = Product::find($order->product_id);
+        if ($order->quantity >= 1) {
+            $order_quantity = $order->quantity + 1;
+            $order_price = $product->offer ? $product->offer * $order_quantity : $product->price * $order_quantity;
+            Order::updateOrCreate(
+                [
+                    'user_id' => auth()->id(),
+                    'product_id' => $product->id,
+                    'state' => 'pending',
+                ],
+                [
+                    'amount' => $order_price,
+                    'quantity' => $order_quantity,
+                ]);
+        };
+
+
+        $this->getProduct();
+    }
+
+    public function orderMines($id)
+    {
+        $order = Order::find($id);
+        $product = Product::find($order->product_id);
+        if ($order->quantity > 1) {
+            $order_quantity = $order->quantity - 1;
+            $order_price = $product->offer ? $product->offer * $order_quantity : $product->price * $order_quantity;
+            Order::updateOrCreate(
+                [
+                    'user_id' => auth()->id(),
+                    'product_id' => $product->id,
+                    'state' => 'pending',
+                ],
+                [
+                    'amount' => $order_price,
+                    'quantity' => $order_quantity,
+                ]);
+        };
+        if ($order->quantity <= 1) {
+            $order->delete();
+        };
+
+        $this->getProduct();
+    }
+
+    public function setPayment()
+    {
+        $orders=Order::where([
+            ['user_id', auth()->id()],
+            ['state','pending']
+        ])->get();
+        if ($orders->count()>0){
+            $payment = Payment::create([
+                'user_id' => auth()->id(),
+                'amount' =>$orders->sum('amount'),
+                'status' => 'pending'
+            ]);
+
+            foreach ($orders as $order) {
+                $order->update([
+                    'state'=>'payments',
+                    'payment_id' => $payment->id
+                ]);
+            }
+            return redirect()->route('user.payments');
+        }
+
+
+    }
+
     public function render()
     {
         return view('livewire.pages.products');

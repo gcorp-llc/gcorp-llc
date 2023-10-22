@@ -87,7 +87,7 @@
                     <!--end::Wrapper-->
                     <!--begin::Submit button-->
                     <div class="d-grid mb-10">
-                        <button wire:click="login" type="submit" id="kt_sign_in_submit" class="btn btn-primary">
+                        <a wire:click="login" class="btn btn-primary">
                             <!--begin::Indicator label-->
                             <span class="indicator-label">ورود</span>
                             <!--end::Indicator label-->
@@ -95,7 +95,7 @@
                             <span wire:loading class="indicator-progress">
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             <!--end::Indicator progress-->
-                        </button>
+                        </a>
                     </div>
 
                     <!--end::Submit button-->
