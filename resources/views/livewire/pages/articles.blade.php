@@ -6,7 +6,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column me-3">
                 <!--begin::Title-->
-                <h1 class="d-flex text-dark fw-bold my-1 fs-3">مقالات</h1>
+                <h2 class="d-flex text-dark fw-bold my-1 fs-3">مقالات</h2>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-dot fw-semibold text-gray-600 fs-7 my-1">
@@ -76,7 +76,7 @@
                                             <div class="m-0">
                                                 <!--begin::Number-->
                                                 <span
-                                                    class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{$posts}}</span>
+                                                    class="text-gray-700 fw-bolder d-block fs-2qx lh-1 ls-n1 mb-1">{{$data->total()}}</span>
                                                 <!--end::Number-->
                                                 <!--begin::Desc-->
                                                 <span class="text-gray-500 fw-semibold fs-6">تعداد مقالات</span>
@@ -326,7 +326,7 @@
                                                         <!--end::Subtitle-->
                                                         <!--begin::Items-->
                                                         <div class="d-flex d-grid gap-5">
-                                                            <p class="fs-3">{{$item->info}}</p>
+                                                            <p class="fs-3">{!! $item->info !!}</p>
                                                         </div>
                                                         <!--end::Items-->
                                                     </div>
@@ -389,7 +389,29 @@
             <!--end::Row-->
             <!--begin::Row-->
             <div class="row g-5 g-xl-10">
+                <div class="card">
+                    <div class="card-body rounded-3">
+                        <form wire:submit="search">
+                            <div class="d-flex flex-wrap justify-content-center">
+                                <div class="align-self-center flex-fill mx-5">
+                                    <label for="exampleFormControlInput1" class="form-label">جستجو مقاله</label>
+                                    <input wire:model="query" type="text"
+                                           class="form-control flex-fill me-2 form-control-solid"/>
 
+                                </div>
+
+                                <div class="align-self-end">
+                                    <button type="submit" wire:key.enter="search"
+                                            class="btn btn-primary fw-bold flex-shrink-0 align-self-end mt-5">
+                                        جستجو
+                                    </button>
+
+                                </div>
+                            </div>
+                            <!--end::Title-->
+                        </form>
+                    </div>
+                </div>
                 <!--begin::Col-->
                 <div class="col-xl-12 mb-5 mb-xl-12">
                     <!--begin::Timeline Widget 1-->
@@ -406,9 +428,12 @@
                                                 <div class="mb-2">
 
                                                     <!--begin::Illustration-->
-                                                    <div class="pb-5 text-center">
-                                                        <img src="{{Storage::url($item->cover)}}" class="rounded-4 img-fluid h-200" alt="{{$item->title}}">
-                                                    </div>
+                                                    @if($item->cover)
+                                                        <div class="pb-5 text-center">
+                                                            <img src="{{Storage::url($item->cover)}}" class="rounded-4 img-fluid h-200" alt="{{$item->title}}">
+                                                        </div>
+                                                    @endif
+
                                                     <!--end::Illustration-->
                                                     <!--begin::Title-->
                                                     <h2 class="fw-semibold text-gray-800 text-center lh-lg">

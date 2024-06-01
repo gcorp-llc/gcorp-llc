@@ -193,6 +193,7 @@ return [
 
     'additional_js' => [
         //'js/custom.js',
+        'js/tinymce.min.js'
     ],
 
     'googlemaps' => [

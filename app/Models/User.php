@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends \TCG\Voyager\Models\User
 {
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -26,7 +27,9 @@ class User extends \TCG\Voyager\Models\User
         'settings',
         'avatar',
         'social_id',
-        'social_type'
+        'social_type',
+        'role_id',
+        'data'
     ];
 
     /**
@@ -47,5 +50,8 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'data' => 'object'
     ];
+    protected $perPage = 500;
+
 }

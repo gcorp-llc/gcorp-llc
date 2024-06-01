@@ -7,7 +7,7 @@
 
                 <div class="panel panel-bordered">
                     <div class="panel-body">
-                    <livewire:admin.advertising/>
+                        <livewire:admin.crawler/>
                     </div>
                 </div>
             </div>

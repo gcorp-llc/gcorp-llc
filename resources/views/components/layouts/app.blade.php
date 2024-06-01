@@ -5,7 +5,45 @@
     <base href=""/>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="{{asset('manifest.json')}}">
     <script>
+        // اضافه کردن یک event listener برای رویداد beforeinstallprompt
+        window.addEventListener('beforeinstallprompt', (event) => {
+            // لغو نمایش پیشنهاد نصب به کاربر
+            event.preventDefault();
+
+            // در اینجا می‌توانید کد دلخواه خود را برای کنترل نمایش پیشنهاد به کاربر اضافه کنید.
+            // مثلاً می‌توانید یک دکمه در صفحه اضافه کنید که به کاربر این امکان را بدهد.
+
+            // نمونه: نمایش یک دکمه با استفاده از DOM
+            const installButton = document.createElement('button');
+            installButton.innerText = 'نصب PWA';
+            installButton.addEventListener('click', () => {
+                // نمایش پنجره نصب به کاربر
+                event.prompt();
+                // انتظار برای نتیجه نصب
+                event.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('کاربر نصب را قبول کرد');
+                    } else {
+                        console.log('کاربر نصب را رد کرد');
+                    }
+                });
+            });
+
+            // اضافه کردن دکمه به صفحه
+            document.body.appendChild(installButton);
+        });
+
+        // Add offline support
+        function addOfflineSupport() {
+            // Add a service worker
+            navigator.serviceWorker.register("serviceworker.js");
+        }
+
+        // Load the service worker
+        addOfflineSupport();
+
         document.addEventListener("contextmenu", function (e) {
             e.preventDefault();
         });
@@ -17,7 +55,7 @@
     </script>
     <!--end::Global Javascript Bundle-->
 
-
+    <link rel="canonical" href="{{url()->current()}}" />
     <!-- MINIFIED -->
     {!! SEO::generate(true) !!}
 

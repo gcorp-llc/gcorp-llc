@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Str;
 use TCG\Voyager\Traits\Translatable;
 
 //use TCG\Voyager\Traits\Translatable;
@@ -15,11 +16,24 @@ use TCG\Voyager\Traits\Translatable;
 class Post extends Model
 {
     use Translatable;
+    protected $perPage = 500;
     protected $translatable = ['title', 'slug', 'info', 'tags','description','seo_description','seo_keywords'];
     use HasFactory;
     protected $with=['authors','categories'];
+    protected $guarded=[];
 //    Use Translatable;
 //    protected $translatable = ['title', 'body'];
+
+    public static function boot()
+    {
+        static::saving(function ($post) {
+            if (empty($post->id)) {
+                $post->slug=Str::replace(" ","_",$post->title);
+            };
+        });
+        parent::boot();
+
+    }
     public function postTags():HasMany
     {
         return $this->hasMany(PostTag::class);
@@ -35,10 +49,6 @@ class Post extends Model
         return $this->hasMany(AuthorPost::class);
     }
 
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 
     public function categories(): BelongsToMany
     {

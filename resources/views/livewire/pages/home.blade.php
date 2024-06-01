@@ -1,4 +1,5 @@
 <div>
+
     <!--begin::Toolbar-->
     <div class="toolbar py-5 py-lg-5" id="kt_toolbar">
         <!--begin::Container-->
@@ -11,12 +12,15 @@
                         <!--begin::Body-->
                         <div class="card-body d-flex flex-column flex-lg-row flex-stack p-lg-15">
                             <!--begin::Info-->
+                            <livewire:components.home.dr-slider/>
                             <div
                                 class="d-flex flex-column justify-content-center align-items-center align-items-lg-start me-10 text-center text-lg-start">
+
                                 <!--begin::Title-->
                                 <h3 class="text-center fs-3 mb-5 text-primary">
                                     انتخاب بهترین ها یک امتیاز است
                                 </h3>
+
                                 <h3 class="fs-2x line-height-lg mb-5 text-center">
                                     <span class="fw-bold">
                                         فقط یک متخصص میتواند
@@ -49,7 +53,10 @@
     </div>
     <!--end::Toolbar-->
     <!--begin::Container-->
+    <livewire:components.home.doctors/>
+    
     <livewire:components.home.services/>
+
     <!--end::Container-->
     <!--begin::Container-->
     {{--    <livewire:components.home.products />--}}

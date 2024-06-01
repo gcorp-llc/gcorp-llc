@@ -10,5 +10,6 @@ class Ticket extends Model
 {
     use Translatable;
     protected $translatable = ['title', 'content'];
+    protected $guarded=[];
     use HasFactory;
 }

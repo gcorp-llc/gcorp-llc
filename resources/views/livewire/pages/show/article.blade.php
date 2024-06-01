@@ -1,6 +1,6 @@
 <div>
     @push('links')
-        <meta name="author" content=" @foreach($data->authors as $item){{$item->name}}@endforeach">
+        <meta name="author" content=" {{$author->name}}">
     @endpush
     <div class="toolbar py-5 py-lg-5" id="kt_toolbar">
         <!--begin::Container-->
@@ -43,11 +43,13 @@
             <!--begin::Row-->
             <div class="container-fluid shadow-sm">
                 <div class="d-flex justify-content-center ">
-                    <div class="col-md-6">
-                        <img class="rounded-4 shadow text-center img-fluid mt-10" src="{{Storage::url($data->cover)}}"
-                             alt="{{$data->title}}">
+                    @if($data->cover)
+                        <div class="col-md-6">
+                            <img class="rounded-4 shadow text-center img-fluid mt-10" src="{{Storage::url($data->cover)}}"
+                                 alt="{{$data->title}}">
 
-                    </div>
+                        </div>
+                    @endif
 
                 </div>
                 <div class="mt-10">
@@ -68,10 +70,8 @@
 
                                     <!--begin::Carousel Indicators-->
                                     <ol class="p-0 m-0 carousel-indicators carousel-indicators-bullet carousel-indicators-active-primary">
-                                        @foreach($data->authors as $item)
 
-                                        <li data-bs-target="#kt_carousel_3_carousel" data-bs-slide-to="0" class="ms-1 {{$loop->first ?'active':''}}"></li>
-                                        @endforeach
+                                        <li data-bs-target="#kt_carousel_3_carousel" data-bs-slide-to="0" class="ms-1 active"></li>
                                     </ol>
                                     <!--end::Carousel Indicators-->
                                 </div>
@@ -80,19 +80,17 @@
                                 <!--begin::Carousel-->
                                 <div class="carousel-inner pt-8">
                                     <!--begin::Item-->
-                                    @foreach($data->authors as $item)
-                                        <div class="carousel-item {{$loop->first ?'active':''}}">
+
+                                        <div class="carousel-item active">
                                             <div class="symbol symbol-50px">
 
-                                                    <img src="{{Storage::url($item->avatar)}}" alt="{{$item->name}}"/>
-                                               <b class="mx-2">{{$item->name}}</b>
-
+                                                    <img src="{{Storage::url($author->avatar)}}" alt="{{$author->name}}"/>
+                                               <b class="mx-2">{{$author->name}}</b>
                                             </div>
                                             <div class="mt-5">
-                                                {!! Str::limit($item->description,220) !!}
+                                                {!! Str::limit($author->description,220) !!}
                                             </div>
                                         </div>
-                                    @endforeach
 
                                     <!--end::Item-->
 

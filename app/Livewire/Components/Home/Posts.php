@@ -22,7 +22,7 @@ class Posts extends Component
     public function render()
     {
         return view('livewire.components.home.posts')->with([
-            'data'=>Post::latest()->take(5)->get(),
+            'data'=>Post::inRandomOrder()->latest()->take(5)->get(),
             'news'=>Post::latest()->limit(3)->get(),
             'polar'=>Post::inRandomOrder()->limit(3)->get()
         ]);

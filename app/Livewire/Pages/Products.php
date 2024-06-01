@@ -8,6 +8,8 @@ use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Service;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Products extends Component
@@ -131,7 +133,16 @@ class Products extends Component
             ['state','pending']
         ])->get();
         if ($orders->count()>0){
+            $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $randomCode = Str::random(6, $characters);
+
+            // Check if the code is unique
+            while (DB::table('payments')->where('merger_id', $randomCode)->exists()) {
+                $randomCode = Str::random(6, $characters);
+            }
+
             $payment = Payment::create([
+                'merger_id'=> $randomCode,
                 'user_id' => auth()->id(),
                 'amount' =>$orders->sum('amount'),
                 'status' => 'pending'

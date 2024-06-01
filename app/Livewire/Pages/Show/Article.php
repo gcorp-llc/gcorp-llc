@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pages\Show;
 
+use App\Models\Author;
 use App\Models\Post;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\SEOMeta;
@@ -10,10 +11,11 @@ use Livewire\Component;
 
 class Article extends Component
 {
-    public $data;
+    public $data,$author;
 
     public function mount($slug)
     {
+        $this->author=Author::first();
         $this->data = Post::firstWhere('slug',$slug);
 
         SEOTools::setTitle($this->data->title);

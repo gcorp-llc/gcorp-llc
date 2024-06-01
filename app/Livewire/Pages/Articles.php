@@ -13,14 +13,16 @@ use Livewire\WithPagination;
 class Articles extends Component
 {
     use WithPagination;
-public $posts,$authors,$categories;
+public $posts,$authors,$categories,$query = '';
     public function mount()
     {
-        $this->posts=Post::count();
         $this->authors=Author::count();
         $this->categories=Category::count();
+    }
 
-
+    public function search()
+    {
+        $this->resetPage();
     }
     public function render()
     {
@@ -36,7 +38,8 @@ public $posts,$authors,$categories;
         SEOTools::opengraph()->setUrl('https://gcorp.cc/articles');
         SEOTools::opengraph()->addProperty('type', 'articles');
         return view('livewire.pages.articles')->with([
-            'data' =>Post::latest()->paginate(12),
+            'data' =>Post::where('title', 'like', '%' . $this->query . '%')->
+            inRandomOrder()->latest()->paginate(30),
             'news'=>Post::latest()->limit(3)->get(),
             'polar'=>Post::inRandomOrder()->limit(3)->get()
         ]);

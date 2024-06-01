@@ -193,31 +193,22 @@
                                             <th class="min-w-150px sorting" tabindex="0"
                                                 aria-controls="kt_table_widget_5_table" rowspan="1" colspan="1"
                                                 aria-label="Item: activate to sort column ascending"
-                                                style="width: 150px;">Item
+                                                style="width: 150px;">کد پیگیری
                                             </th>
-                                            <th class="text-end pe-3 min-w-100px sorting_disabled" rowspan="1"
-                                                colspan="1" aria-label="Product ID" style="width: 100px;">Product ID
+                                            <th class="text-center pe-3 min-w-100px sorting" rowspan="1"
+                                                colspan="1" aria-label="Product ID" style="width: 100px;">مبلغ
                                             </th>
                                             <th class="text-end pe-3 min-w-150px sorting" tabindex="0"
                                                 aria-controls="kt_table_widget_5_table" rowspan="1" colspan="1"
                                                 aria-label="Date Added: activate to sort column ascending"
-                                                style="width: 150px;">Date Added
+                                                style="width: 150px;">وضعیت پرداخت
                                             </th>
-                                            <th class="text-end pe-3 min-w-100px sorting" tabindex="0"
+                                            <th class="text-center pe-3 min-w-150px sorting" tabindex="0"
                                                 aria-controls="kt_table_widget_5_table" rowspan="1" colspan="1"
-                                                aria-label="Price: activate to sort column ascending"
-                                                style="width: 100px;">Price
+                                                aria-label="Date Added: activate to sort column ascending"
+                                                style="width: 150px;">جزئیات
                                             </th>
-                                            <th class="text-end pe-3 min-w-100px sorting" tabindex="0"
-                                                aria-controls="kt_table_widget_5_table" rowspan="1" colspan="1"
-                                                aria-label="Status: activate to sort column ascending"
-                                                style="width: 106.391px;">Status
-                                            </th>
-                                            <th class="text-end pe-0 min-w-75px sorting" tabindex="0"
-                                                aria-controls="kt_table_widget_5_table" rowspan="1" colspan="1"
-                                                aria-label="Qty: activate to sort column ascending"
-                                                style="width: 75px;">Qty
-                                            </th>
+
                                         </tr>
                                         <!--end::Table row-->
                                         </thead>
@@ -225,214 +216,203 @@
                                         <!--begin::Table body-->
                                         <tbody class="fw-bold text-gray-600">
 
+                                        @forelse($payments as $item)
+                                            <tr class="odd">
+                                                <!--begin::Item-->
+                                                <td>
+                                                    <p class="text-dark text-hover-primary">{{$item->merger_id??"فاقد کد پیگیری"}}</p>
+                                                </td>
+                                                <!--end::Item-->
 
-                                        <tr class="odd">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">Macbook Air M1</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#XGY-356</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-04-20T00:00:00+03:30">02 Apr, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$1,230</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="58">
-                                                <span class="text-dark fw-bold">58 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="even">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">Surface Laptop 4</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#YHD-047</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-04-20T00:00:00+03:30">01 Apr, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$1,060</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span
-                                                    class="badge py-3 px-4 fs-7 badge-light-danger">Out of Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="0">
-                                                <span class="text-dark fw-bold">0 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="odd">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">Logitech MX 250</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#SRR-678</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-03-20T00:00:00+03:30">24 Mar, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$64</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="290">
-                                                <span class="text-dark fw-bold">290 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="even">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">AudioEngine HD3</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#PXF-578</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-03-20T00:00:00+03:30">24 Mar, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$1,060</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span
-                                                    class="badge py-3 px-4 fs-7 badge-light-danger">Out of Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="46">
-                                                <span class="text-dark fw-bold">46 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="odd">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">HP Hyper LTR</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#PXF-778</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-01-20T00:00:00+03:30">16 Jan, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$4500</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="78">
-                                                <span class="text-dark fw-bold">78 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="even">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">Dell 32 UltraSharp</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#XGY-356</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-12-20T00:00:00+03:30">22 Dec, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$1,060</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">Low Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="8">
-                                                <span class="text-dark fw-bold">8 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
-                                        <tr class="odd">
-                                            <!--begin::Item-->
-                                            <td>
-                                                <a href="../../demo11/dist/apps/ecommerce/catalog/edit-product.html"
-                                                   class="text-dark text-hover-primary">Google Pixel 6 Pro</a>
-                                            </td>
-                                            <!--end::Item-->
-                                            <!--begin::Product ID-->
-                                            <td class="text-end">#XVR-425</td>
-                                            <!--end::Product ID-->
-                                            <!--begin::Date added-->
-                                            <td class="text-end" data-order="2023-12-20T00:00:00+03:30">27 Dec, 2023
-                                            </td>
-                                            <!--end::Date added-->
-                                            <!--begin::Price-->
-                                            <td class="text-end">$1,060</td>
-                                            <!--end::Price-->
-                                            <!--begin::Status-->
-                                            <td class="text-end">
-                                                <span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
-                                            </td>
-                                            <!--end::Status-->
-                                            <!--begin::Qty-->
-                                            <td class="text-end" data-order="124">
-                                                <span class="text-dark fw-bold">124 PCS</span>
-                                            </td>
-                                            <!--end::Qty-->
-                                        </tr>
+                                                <!--begin::Price-->
+                                                <td class="text-end">{{number_format($item->amount)}} تومان</td>
+                                                <!--end::Price-->
+                                                <!--begin::Status-->
+                                                <td class="text-end">
+                                                    <a href="{{route('user.payments')}}"
+                                                       class="badge py-3 px-4 fs-7 {{$item->status=="pending"?"badge-light-primary":"badge-light-success"}}  ">{{$item->status=="pending"?" پرداخت":"پرداخت شده"}}</a>
+                                                </td>
+
+                                                <td class="text-center">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                            data-bs-target="#payment-{{$item->id}}">
+                                                        مشاهده جزئیات
+                                                    </button>
+
+                                                    <div class="modal fade" tabindex="-1" id="payment-{{$item->id}}">
+                                                        <div class="modal-dialog modal-dialog-centered">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="modal-title">جزئیات فاکتور</h3>
+
+                                                                    <!--begin::Close-->
+                                                                    <div
+                                                                        class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i class="ki-duotone ki-cross fs-1"><span
+                                                                                class="path1"></span><span
+                                                                                class="path2"></span></i>
+                                                                    </div>
+                                                                    <!--end::Close-->
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        @forelse($item->projects as $item)
+                                                                            <!--begin::Col-->
+                                                                            <div class="col-md-12 mb-10">
+                                                                                <!--begin::Card-->
+                                                                                <a href="#"
+                                                                                   class="card border-hover-primary">
+
+                                                                                    <!--begin:: Card body-->
+                                                                                    <div
+                                                                                        class="card-body p-9 ribbon ribbon-top ribbon-vertical">
+                                                                                        <!--begin::Name-->
+
+                                                                                        {!! $item->product->cover !!}
+
+
+                                                                                        <div
+                                                                                            class="fs-3 fw-bold text-dark">{{$item->product->title}}</div>
+                                                                                        <!--end::Name-->
+                                                                                        <!--begin::Description-->
+                                                                                        <p class="text-gray-900 fw-semibold fs-5 mt-1 mb-7">{{$item->product->info}}</p>
+                                                                                        <!--end::Description-->
+                                                                                        <!--begin::Info-->
+                                                                                        <div
+                                                                                            class="d-flex flex-center mb-5">
+                                                                                            <!--begin::Due-->
+                                                                                            <div
+                                                                                                class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-7 mb-3">
+                                                                                                <div
+                                                                                                    class="fs-6 text-gray-800 fw-bold">{{$item->product->start_date ? verta($item->product->start_date)->format('Y/m/d') : "در لیست انتظار"}}</div>
+                                                                                                <div
+                                                                                                    class="fw-semibold text-gray-400">
+                                                                                                    زمان آغاز پروژه
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end::Due-->
+                                                                                            <!--begin::Budget-->
+                                                                                            <div
+                                                                                                class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 mb-3">
+                                                                                                <div
+                                                                                                    class="fs-6 text-gray-800 fw-bold">{{$item->product->start_date ? verta($item->product->end_date)->format('Y/m/d') : "در لیست انتظار"}}</div>
+                                                                                                <div
+                                                                                                    class="fw-semibold text-gray-400">
+                                                                                                    زمان پایان پروژه
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!--end::Budget-->
+                                                                                        </div>
+                                                                                        <!--end::Info-->
+                                                                                    </div>
+                                                                                    <!--end:: Card body-->
+                                                                                </a>
+                                                                                <!--end::Card-->
+                                                                            </div>
+                                                                            <!--end::Col-->
+                                                                        @empty
+                                                                            <p class="text-center"> پروژه ای ثبت
+                                                                                نگردیده</p>
+                                                                        @endforelse
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal">بستن
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" tabindex="-1" id="kt_modal_stacked_2">
+                                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="modal-title">Stacked modal title</h3>
+
+                                                                    <!--begin::Close-->
+                                                                    <div
+                                                                        class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i class="ki-duotone ki-cross fs-1"><span
+                                                                                class="path1"></span><span
+                                                                                class="path2"></span></i>
+                                                                    </div>
+                                                                    <!--end::Close-->
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    ...
+
+                                                                    <button type="button" class="btn btn-primary"
+                                                                            data-bs-stacked-modal="#kt_modal_stacked_3">
+                                                                        Launch stacked modal
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal">Close
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary">Save
+                                                                        changes
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" tabindex="-1" id="kt_modal_stacked_3"
+                                                         data-bs-backdrop="static">
+                                                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h3 class="modal-title">Stacked modal title</h3>
+
+                                                                    <!--begin::Close-->
+                                                                    <div
+                                                                        class="btn btn-icon btn-sm btn-active-light-primary ms-2"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i class="ki-duotone ki-cross fs-1"><span
+                                                                                class="path1"></span><span
+                                                                                class="path2"></span></i>
+                                                                    </div>
+                                                                    <!--end::Close-->
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    ...
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light"
+                                                                            data-bs-dismiss="modal">Close
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary">Save
+                                                                        changes
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr class="red">
+                                                <p>تراکنشی ثبت نشده</p>
+                                            </tr>
+                                        @endforelse
                                         </tbody>
                                         <!--end::Table body-->
                                     </table>
                                 </div>
-                                <div class="row">
-                                    <div
-                                        class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"></div>
-                                    <div
-                                        class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"></div>
+
+                                <div class="row mt-10">
+                                    {!! $payments->links('vendor.livewire.bootstrap') !!}
                                 </div>
                             </div>
                             <!--end::Table-->

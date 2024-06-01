@@ -170,6 +170,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Melipayamak\Laravel\ServiceProvider::class,
+        \App\Providers\NotificationServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -187,6 +189,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
         Melipayamak\Laravel\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];

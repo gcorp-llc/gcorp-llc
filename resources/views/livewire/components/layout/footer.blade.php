@@ -17,6 +17,8 @@
                     <!--end::Subtitle-->
                     <!--begin::Number-->
                     <div class="text-gray-700 fw-semibold fs-2">
+                        <a class="text-gray-700 fs-3 fw-semibold" href="tel:02191694901">02191694901</a>
+                        <br>
                         <a class="text-gray-700 fs-3 fw-semibold" href="tel:09370290168">09370290168</a>
                     </div>
                     <!--end::Number-->
